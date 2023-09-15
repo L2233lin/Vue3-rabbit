@@ -1,6 +1,14 @@
 import request from '@/utils/request'
 
-export const getBannerAPI = () => request.get('home/banner')
+export const getBannerAPI = (params = {}) => {
+  // 默认为1 商品为2
+  const { distributionSite = '1' } = params
+  return request.get('home/banner', {
+    params: {
+      distributionSite
+    }
+  })
+}
 
 export const getNewAPI = () => request.get('/home/new')
 
