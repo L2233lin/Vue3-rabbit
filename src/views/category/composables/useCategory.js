@@ -14,8 +14,8 @@ export function useCategory() {
   onMounted(() => getCategory(route.params.id))
 
   watch(route, () => {
-    //防止从category跳转到home也调用函数
-    if (Boolean(route.params.id) !== false) {
+    //防止从category跳转到其他路由也调用函数
+    if (route.matched[1].path === '/category/:id') {
       getCategory(route.params.id)
     }
   })
