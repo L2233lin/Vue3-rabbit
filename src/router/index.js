@@ -6,6 +6,7 @@ import Category from '@/views/Category/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  linkExactActiveClass: 'active', // 配置精确匹配的高亮类名
   routes: [
     {
       path: '/',
