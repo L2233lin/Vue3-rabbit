@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { getCategoryFilterAPI, getSubCategoryAPI } from '@/apis/category'
-import GoodsItem from '../Home/components/GoodsItem.vue'
+import GoodsItem from '@/views/home/components/GoodsItem.vue'
 // 获取面包屑导航数据
 const filterData = ref({})
 const route = useRoute()
