@@ -8,7 +8,7 @@ pinia.use(persist)
 export default pinia
 
 //仓库 统一导出
-export * from './modules/user'
+export * from './modules/userStore'
 export * from './modules/categoryStore'
 
 //export * from './modules/user' 等价于==>
