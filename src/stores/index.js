@@ -10,6 +10,7 @@ export default pinia
 //仓库 统一导出
 export * from './modules/userStore'
 export * from './modules/categoryStore'
+export * from './modules/cartStore'
 
 //export * from './modules/user' 等价于==>
 // 1. import { useUserStore } from './modules/user'
