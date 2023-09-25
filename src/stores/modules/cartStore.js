@@ -9,6 +9,7 @@ export const useCartStore = defineStore(
   () => {
     const userStore = useUserStore()
     const isLogin = computed(() => userStore.userInfo.token)
+
     // 1. 定义state - cartList
     const cartList = ref([])
     // 获取最新购物车列表action

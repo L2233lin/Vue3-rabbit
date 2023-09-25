@@ -2,9 +2,11 @@
 import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
 import { useRouter } from 'vue-router'
-import { useUserStore } from '@/stores'
+import { useUserStore, useCartStore } from '@/stores'
+import { mergeCartAPI } from '@/apis/cart'
 
 const userStore = useUserStore()
+const cartStore = useCartStore()
 import { ref } from 'vue'
 // 表单数据对象
 const userInfo = ref({
@@ -49,6 +51,17 @@ const doLogin = () => {
     if (valid) {
       // TODO LOGIN
       await userStore.getUserInfo({ account, password })
+      // 合并购物车的操作
+      await mergeCartAPI(
+        cartStore.cartList.map((item) => {
+          return {
+            skuId: item.skuId,
+            selected: item.selected,
+            count: item.count
+          }
+        })
+      )
+      cartStore.updateNewList()
       // 1. 提示用户
       ElMessage({ type: 'success', message: '登录成功' })
       // 2. 跳转首页
