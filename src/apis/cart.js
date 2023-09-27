@@ -15,15 +15,5 @@ export const findNewCartListAPI = () => request.get('/member/cart')
 export const delCartAPI = (ids) =>
   request.delete('/member/cart', { data: { ids } })
 
-// export const delCartAPI = (ids) => {
-//   return request({
-//     url: '/member/cart',
-//     method: 'DELETE',
-//     data: {
-//       ids
-//     }
-//   })
-// }
-
 // 合并购物车
 export const mergeCartAPI = (data) => request.post('/member/cart/merge', data)

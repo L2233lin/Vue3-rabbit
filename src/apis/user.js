@@ -6,3 +6,10 @@ export const loginAPI = ({ account, password }) =>
     account,
     password
   })
+
+export const getLikeListAPI = ({ limit = 4 }) =>
+  request.get('/goods/relevant', {
+    params: {
+      limit
+    }
+  })
